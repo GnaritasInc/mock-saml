@@ -48,8 +48,8 @@ export default function Login() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        //email: `${username}@${domain}`,
-        email: `${username}@example.com`,
+        email: `${username}@${domain}`,
+        //email: `${username}@example.com`,
         id,
         audience: audience || state.audience,
         acsUrl: acsUrl || state.acsUrl,
@@ -64,8 +64,8 @@ export default function Login() {
       newDoc.write(await response.text());
       newDoc.close();
     } else {
-      console.log('Error in getting SAML response', response);
-      console.log ("From authUrl: ", authUrl);  
+      document.write('Error in getting SAML response', JSON.stringify(response));
+      document.write ("From authUrl: ", authUrl);  
       document.write('Error in getting SAML response');
     }
   };
@@ -132,7 +132,7 @@ export default function Login() {
                       ref={emailInp}
                       autoComplete='off'
                       type='text'
-                      placeholder='jackson'
+                      placeholder='Username'
                       value={state.username}
                       onChange={handleChange}
                       className='input input-bordered'
@@ -149,7 +149,7 @@ export default function Login() {
                       className='select select-bordered'
                       onChange={handleChange}
                       value={state.domain}>
-                      <option value='example.com'>@bmc.org</option>
+                      <option value='example.com'>@example.com</option>
                     </select>
                   </div>
                   <div className='form-control col-span-2'>
