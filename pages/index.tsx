@@ -18,9 +18,9 @@ const Home: React.FC<{ metadata: IdPMetadata; params: any }> = ({ metadata, para
   return (
     <div className='flex items-center justify-center'>
       <div className='flex w-full max-w-4xl flex-col space-y-5 px-2'>
-        <h1 className='text-center text-xl font-extrabold text-gray-900 md:text-2xl'>
+        {/* <h1 className='text-center text-xl font-extrabold text-gray-900 md:text-2xl'>
           A free SAML 2.0 Identity Provider for testing SAML SSO integrations.
-        </h1>
+        </h1> */}
         <div className='flex flex-col justify-between space-y-5 md:flex-row md:space-y-0'>
           <div className='flex flex-col space-y-5 md:flex-row md:space-x-5 md:space-y-0'>
             <Link href={metadataDownloadUrl} className='btn-primary btn-active btn'>
@@ -74,9 +74,9 @@ const Home: React.FC<{ metadata: IdPMetadata; params: any }> = ({ metadata, para
           </div>
         </div>
         <div className='alert alert-error'>
-          <div>
+          {/* <div>
             <span className='text-white'>Caution: Not for production use.</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

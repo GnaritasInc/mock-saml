@@ -19,10 +19,10 @@ export default function Header() {
             viewBox='0 0 24 24'>
             <path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' />
           </svg>
-          <span className='ml-3 text-2xl'>Mock SAML</span>
+          <span className='ml-3 text-2xl'>BMC Mock SAML IDP</span>
         </Link>
         <div className='flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-2'>
-          <span>
+          {/* <span>
             <a
               className='btn-outline btn-sm btn'
               href='https://github.com/boxyhq/jackson'
@@ -36,7 +36,7 @@ export default function Header() {
             <a href='https://boxyhq.com/' rel='noopener noreferrer' target='_blank'>
               <strong>BoxyHQ</strong>
             </a>
-          </span>
+          </span> */}
         </div>
       </div>
     </header>
