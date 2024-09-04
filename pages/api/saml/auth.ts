@@ -55,6 +55,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     ]);
 
+    console.log("Sending SAML response", html)
+
     res.send(html);
   } else {
     res.status(405).send(`Method ${req.method} Not Allowed`);
