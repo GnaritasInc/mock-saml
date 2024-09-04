@@ -9,10 +9,10 @@ export default function Login() {
 
   const authUrl = namespace ? `/api/namespace/${namespace}/saml/auth` : '/api/saml/auth';
   const [state, setState] = useState({
-    username: 'jackson',
-    domain: 'example.com',
-    acsUrl: 'https://sso.eu.boxyhq.com/api/oauth/saml',
-    audience: 'https://saml.boxyhq.com',
+    username: '',
+    domain: 'bmc.org',
+    acsUrl:'',//'https://sso.eu.boxyhq.com/api/oauth/saml',
+    audience: '',//'https://saml.boxyhq.com',
   });
 
   const acsUrlInp = useRef<HTMLInputElement>(null);
@@ -146,8 +146,7 @@ export default function Login() {
                       className='select select-bordered'
                       onChange={handleChange}
                       value={state.domain}>
-                      <option value='example.com'>@example.com</option>
-                      <option value='example.org'>@example.org</option>
+                      <option value='example.com'>@bmc.org</option>
                     </select>
                   </div>
                   <div className='form-control col-span-2'>

@@ -1,5 +1,5 @@
 {
-  "name": "Mock SAML",
+  "name": "BMC Mock SAML IDP",
   "description": "Mock SAML is a free SAML 2.0 Identity Provider for testing SAML SSO integrations.",
   "repository": "https://github.com/boxyhq/mock-saml",
   "logo": "https://boxyhq.com/img/logo.png",
@@ -11,7 +11,7 @@
     },
     "ENTITY_ID": {
       "description": "Identity Provider entity ID.",
-      "value": "https://mocksaml.com/entityid"
+      "value": "https://bmc.org/obsess"
     },
     "PUBLIC_KEY": {
       "description": "Base64 encoded value of public key."
