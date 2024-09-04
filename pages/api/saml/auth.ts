@@ -9,6 +9,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     const { email, audience, acsUrl, id, relayState } = req.body;
 
+    console.log("In auth handler")
+    console.log('audience', audience);  
+    console.log('email', email);
+
+
     // if (!email.endsWith('@example.com') && !email.endsWith('@example.org')) {
     //   res.status(403).send(`${email} denied access`);
     // }
@@ -23,6 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       lastName: userName,
     };
 
+    console.log("Creating signed SAML response")
     const xmlSigned = await saml.createSAMLResponse({
       issuer: getEntityId(config.entityId, req.query.namespace as any),
       audience,
@@ -35,6 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       privateKey: config.privateKey,
       publicKey: config.publicKey,
     });
+    console.log("Got signed SAML response")
 
     const encodedSamlResponse = Buffer.from(xmlSigned).toString('base64');
     const html = saml.createPostForm(acsUrl, [
