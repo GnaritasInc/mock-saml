@@ -48,7 +48,8 @@ export default function Login() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: `${username}@${domain}`,
+        //email: `${username}@${domain}`,
+        email: `${username}@example.com`,
         id,
         audience: audience || state.audience,
         acsUrl: acsUrl || state.acsUrl,
@@ -63,6 +64,8 @@ export default function Login() {
       newDoc.write(await response.text());
       newDoc.close();
     } else {
+      console.log('Error in getting SAML response', response);
+      console.log ("From authUrl: ", authUrl);  
       document.write('Error in getting SAML response');
     }
   };
