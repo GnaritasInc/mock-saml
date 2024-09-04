@@ -11,8 +11,8 @@ export default function Login() {
   const [state, setState] = useState({
     username: '',
     domain: 'bmc.org',
-    acsUrl:'',//'https://sso.eu.boxyhq.com/api/oauth/saml',
-    audience: '',//'https://saml.boxyhq.com',
+    acsUrl: 'https://sso.eu.boxyhq.com/api/oauth/saml',
+    audience: 'https://saml.boxyhq.com',
   });
 
   const acsUrlInp = useRef<HTMLInputElement>(null);
