@@ -66,6 +66,7 @@ export default function Login() {
     } else {
       document.write('Error in getting SAML response', JSON.stringify(response));
       document.write ("From authUrl: ", authUrl);  
+      document.write ("Response status ", response.statusText);  
       document.write('Error in getting SAML response');
     }
   };
