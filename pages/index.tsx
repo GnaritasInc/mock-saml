@@ -43,9 +43,9 @@ const Home: React.FC<{ metadata: IdPMetadata; params: any }> = ({ metadata, para
               Metadata URL
             </Link>
           </div>
-          <Link href={loginUrl} className='btn-outline btn-primary btn'>
+          {/* <Link href={loginUrl} className='btn-outline btn-primary btn'>
             Test IdP Login
-          </Link>
+          </Link> */}
         </div>
         <div className='border-2 p-3'>
           <h2 className='mb-5 text-center text-2xl font-bold text-gray-900'>Mock SAML Metadata</h2>
