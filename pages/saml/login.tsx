@@ -150,7 +150,7 @@ export default function Login() {
                       className='select select-bordered'
                       onChange={handleChange}
                       value={state.domain}>
-                      <option value='example.com'>@example.com</option>
+                      <option value='bmc.org'>@bmc.org</option>
                     </select>
                   </div>
                   <div className='form-control col-span-2'>
@@ -172,7 +172,7 @@ export default function Login() {
                 </div>
               </form>
             </div>
-            <div className='alert alert-info'>
+            {/* <div className='alert alert-info'>
               <div>
                 <span className='text-sm text-white'>
                   This is a simulated login screen, feel free to pick any username but you are restricted to
@@ -180,7 +180,7 @@ export default function Login() {
                   of your authentication and user modelling.
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
