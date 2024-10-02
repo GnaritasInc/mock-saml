@@ -43,6 +43,16 @@ async function processSAMLRequest(req: NextApiRequest, res: NextApiResponse, isP
         throw new Error('Invalid signature');
       }
     }
+    else {
+      const { valid } = await saml.hasValidSignature(rawRequest, publicKey, null);
+      console.log("Valid signature", valid);
+
+      if (!valid) {
+        throw new Error('Invalid signature');
+      }
+
+
+    }
 
     const params = new URLSearchParams({ id, audience, acsUrl, providerName, relayState });
 
