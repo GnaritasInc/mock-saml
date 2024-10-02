@@ -33,8 +33,12 @@ async function processSAMLRequest(req: NextApiRequest, res: NextApiResponse, isP
 
     const { id, audience, acsUrl, providerName, publicKey } = await saml.parseSAMLRequest(rawRequest, isPost);
 
+    console.log("Parsed SAML request", id, audience, acsUrl, providerName);
+
     if (isPost) {
       const { valid } = await saml.hasValidSignature(rawRequest, publicKey, null);
+      console.log("Valid signature", valid);
+      
       if (!valid) {
         throw new Error('Invalid signature');
       }
