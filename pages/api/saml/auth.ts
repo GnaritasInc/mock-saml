@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { email, audience, acsUrl, id, relayState } = req.body;
 
     console.log("In auth handler")
-    console.log('audience', audience);  
+    console.log('audience', audience);
     console.log('email', email);
 
 
@@ -55,7 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     ]);
 
-    console.log("Sending SAML response", html)
+    // console.log("Sending SAML response", html)
 
     res.send(html);
   } else {
