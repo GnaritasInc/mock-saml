@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       lastName: userName,
     };
 
-    console.log("Creating signed SAML response")
+    console.log("Creating signed SAML response", config.entityId, req.query.namespace as any)
     const xmlSigned = await saml.createSAMLResponse({
       issuer: getEntityId(config.entityId, req.query.namespace as any),
       audience,
