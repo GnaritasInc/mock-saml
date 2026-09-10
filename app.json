@@ -19,6 +19,9 @@
     "PRIVATE_KEY": {
       "description": "Base64 encoded value of private key."
     },
+    "LOGIN_PASSWORD": {
+      "description": "Shared password required to sign in on the mock login form."
+    },
     "NEXT_PUBLIC_GTM_ID": {
       "description": "Google Tag Manager ID.",
       "required": false

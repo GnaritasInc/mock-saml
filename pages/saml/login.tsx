@@ -8,9 +8,11 @@ export default function Login() {
   const { id, audience, acsUrl, providerName, relayState, namespace } = router.query;
 
   const authUrl = namespace ? `/api/namespace/${namespace}/saml/auth` : '/api/saml/auth';
+  const [error, setError] = useState('');
   const [state, setState] = useState({
     username: '',
     domain: 'bmc.org',
+    password: '',
     acsUrl: 'https://sso.eu.boxyhq.com/api/oauth/saml',
     audience: 'https://saml.boxyhq.com',
   });
@@ -40,7 +42,9 @@ export default function Login() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { username, domain } = state;
+    const { username, domain, password } = state;
+
+    setError('');
 
     const response = await fetch(authUrl, {
       method: 'POST',
@@ -55,6 +59,7 @@ export default function Login() {
         acsUrl: acsUrl || state.acsUrl,
         providerName,
         relayState,
+        password,
       }),
     });
 
@@ -64,10 +69,7 @@ export default function Login() {
       newDoc.write(await response.text());
       newDoc.close();
     } else {
-      document.write('Error in getting SAML response', JSON.stringify(response));
-      document.write ("From authUrl: ", authUrl);  
-      document.write ("Response status ", response.statusText);  
-      document.write('Error in getting SAML response');
+      setError((await response.text()) || 'Error in getting SAML response');
     }
   };
 
@@ -159,15 +161,19 @@ export default function Login() {
                     </label>
                     <input
                       id='password'
+                      name='password'
                       autoComplete='off'
                       type='password'
-                      defaultValue='samlstrongpassword'
+                      value={state.password}
+                      onChange={handleChange}
                       className='input input-bordered'
                     />
-                    <label className='label'>
-                      <span className='label-text-alt'>Any password works</span>
-                    </label>
                   </div>
+                  {error ? (
+                    <div className='alert alert-error col-span-2'>
+                      <span className='text-sm'>{error}</span>
+                    </div>
+                  ) : null}
                   <button className='btn btn-primary col-span-2 block'>Sign In</button>
                 </div>
               </form>
